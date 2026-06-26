@@ -4,7 +4,7 @@ function initTheme() {
     if (saved) {
         document.documentElement.setAttribute('data-theme', saved);
     } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.setAttribute('data-theme', 'light');
     }
 }
 
@@ -157,6 +157,97 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 revealElements.forEach(el => revealObserver.observe(el));
+
+// ===== Scroll Progress Bar + Back to Top =====
+const scrollProgress = document.getElementById('scrollProgress');
+const backToTop = document.getElementById('backToTop');
+
+function onScrollExtras() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    if (scrollProgress) scrollProgress.style.width = pct + '%';
+    if (backToTop) backToTop.classList.toggle('visible', scrollTop > 600);
+}
+
+window.addEventListener('scroll', onScrollExtras);
+onScrollExtras();
+
+if (backToTop) {
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// ===== Proficiency Bars =====
+let proficiencyAnimated = false;
+
+function animateProficiency() {
+    document.querySelectorAll('.proficiency-fill').forEach(fill => {
+        fill.style.width = fill.getAttribute('data-level') + '%';
+    });
+}
+
+const proficiencyGrid = document.querySelector('.proficiency-grid');
+if (proficiencyGrid) {
+    const profObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !proficiencyAnimated) {
+                proficiencyAnimated = true;
+                animateProficiency();
+                profObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    profObserver.observe(proficiencyGrid);
+}
+
+// ===== Contact Form =====
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+function setFormStatus(msg, type) {
+    if (!formStatus) return;
+    formStatus.textContent = msg;
+    formStatus.className = 'form-status' + (type ? ' ' + type : '');
+}
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const action = contactForm.getAttribute('action');
+        const name = document.getElementById('cf-name').value;
+        const email = document.getElementById('cf-email').value;
+        const subject = document.getElementById('cf-subject').value || 'Portfolio enquiry';
+        const message = document.getElementById('cf-message').value;
+
+        // Fallback: Formspree not configured yet — open the visitor's email app.
+        if (!action || action.includes('YOUR_FORM_ID')) {
+            const body = encodeURIComponent(`${message}\n\nFrom: ${name} (${email})`);
+            window.location.href =
+                `mailto:sindiayanda30@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+            setFormStatus('Opening your email app to send the message…', 'success');
+            return;
+        }
+
+        setFormStatus('Sending…', '');
+        try {
+            const res = await fetch(action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { Accept: 'application/json' }
+            });
+            if (res.ok) {
+                contactForm.reset();
+                setFormStatus("Thanks! Your message has been sent — I'll be in touch soon.", 'success');
+            } else {
+                setFormStatus('Something went wrong. Please email me directly at sindiayanda30@gmail.com.', 'error');
+            }
+        } catch (err) {
+            setFormStatus('Network error. Please email me directly at sindiayanda30@gmail.com.', 'error');
+        }
+    });
+}
 
 // ===== Smooth Scroll for Safari =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

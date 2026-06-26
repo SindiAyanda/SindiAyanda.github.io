@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#hero" class="nav-logo-link">
-                <div class="nav-avatar">SA</div>
+                <div class="nav-avatar" role="img" aria-label="Sindi Ayanda Mthiyane"></div>
             </a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
@@ -47,16 +50,16 @@
             <div class="hero-orb hero-orb-3"></div>
         </div>
         <div class="hero-content">
-            <div class="hero-avatar">SA</div>
+            <div class="hero-avatar" role="img" aria-label="Sindi Ayanda Mthiyane"></div>
             <p class="hero-greeting">Hello, I'm</p>
             <h1 class="hero-name">Sindi Ayanda Mthiyane</h1>
             <h2 class="hero-title">
                 <span class="typed-text" id="typedText"></span><span class="cursor">|</span>
             </h2>
             <p class="hero-description">
-                Full-Stack Developer with 4+ years of experience building scalable enterprise
-                web applications. I craft robust solutions using React, Node.js, Python, and PHP —
-                from call centre platforms to customer analytics dashboards.
+                Full-Stack Developer with 4+ years of experience delivering production-grade
+                web applications end-to-end. I build with React, Node.js, Python, and PHP —
+                and I'm looking to bring my skills to a collaborative team at scale.
             </p>
             <div class="hero-actions">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -81,21 +84,21 @@
             <div class="about-grid">
                 <div class="about-text">
                     <p>
-                        I'm a passionate Full-Stack Developer with over 4 years of hands-on experience
-                        designing, building, and maintaining production-grade web applications. I specialize
-                        in creating end-to-end solutions — from intuitive React frontends to robust
-                        backend APIs with Flask, Node.js, and PHP.
+                        I'm a Full-Stack Developer with 4+ years of experience designing, building,
+                        and shipping production web applications. I've owned the full software lifecycle
+                        — from requirements gathering and database design to frontend development,
+                        API integration, deployment, and ongoing maintenance.
                     </p>
                     <p>
-                        At my current role, I've handedly architected and delivered multiple
-                        enterprise systems including a distributed call centre platform, customer payment
-                        analytics dashboards, and interactive promotional tools — all serving real business
-                        needs and handling live operations daily.
+                        I've delivered 5+ enterprise systems used daily in live operations, including
+                        a distributed call centre platform, customer analytics dashboards, and promotional
+                        tools — applying best practices like JWT authentication, role-based access control,
+                        RESTful API design, and error monitoring with Sentry.
                     </p>
                     <p>
-                        Beyond software development, I also manage IT infrastructure — from Active Directory
-                        and Office 365 administration to leading a full Wi-Fi network upgrade with UniFi U7 Pro
-                        access points. I bring ideas to life with code and keep systems running smoothly.
+                        I'm eager to join a larger engineering team where I can contribute to complex
+                        projects, learn from experienced developers, participate in code reviews,
+                        and grow through exposure to enterprise architecture and modern development workflows.
                     </p>
                 </div>
                 <div class="about-stats">
@@ -124,6 +127,35 @@
     <section class="section section-alt" id="skills">
         <div class="container">
             <h2 class="section-title">Tech Stack</h2>
+            <p class="section-subtitle">My core proficiencies and the full toolset I build with</p>
+
+            <div class="proficiency-grid">
+                <div class="proficiency">
+                    <div class="proficiency-head"><span>React & JavaScript</span><span class="proficiency-pct">95%</span></div>
+                    <div class="proficiency-track"><div class="proficiency-fill" data-level="95"></div></div>
+                </div>
+                <div class="proficiency">
+                    <div class="proficiency-head"><span>MySQL & SQL Server</span><span class="proficiency-pct">90%</span></div>
+                    <div class="proficiency-track"><div class="proficiency-fill" data-level="90"></div></div>
+                </div>
+                <div class="proficiency">
+                    <div class="proficiency-head"><span>PHP & Laravel</span><span class="proficiency-pct">88%</span></div>
+                    <div class="proficiency-track"><div class="proficiency-fill" data-level="88"></div></div>
+                </div>
+                <div class="proficiency">
+                    <div class="proficiency-head"><span>Node.js & Express</span><span class="proficiency-pct">87%</span></div>
+                    <div class="proficiency-track"><div class="proficiency-fill" data-level="87"></div></div>
+                </div>
+                <div class="proficiency">
+                    <div class="proficiency-head"><span>Python & Flask</span><span class="proficiency-pct">85%</span></div>
+                    <div class="proficiency-track"><div class="proficiency-fill" data-level="85"></div></div>
+                </div>
+                <div class="proficiency">
+                    <div class="proficiency-head"><span>REST APIs, JWT & RBAC</span><span class="proficiency-pct">90%</span></div>
+                    <div class="proficiency-track"><div class="proficiency-fill" data-level="90"></div></div>
+                </div>
+            </div>
+
             <div class="skills-grid">
                 <div class="skill-category">
                     <div class="skill-category-header">
@@ -235,6 +267,12 @@
                         <span>JWT</span>
                         <span>Sentry</span>
                     </div>
+                    <div class="project-links">
+                        <a href="https://github.com/SindiAyanda" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <span class="project-link project-link-private"><i class="fas fa-lock"></i> Enterprise / Private</span>
+                        <!-- To show a live demo instead, replace the line above with:
+                        <a href="REPLACE_WITH_LIVE_URL" target="_blank" rel="noopener" class="project-link project-link-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Demo</a> -->
+                    </div>
                 </div>
 
                 <!-- Project 2: PayGo Customers -->
@@ -264,6 +302,10 @@
                         <span>Recharts</span>
                         <span>OAuth 2.0</span>
                     </div>
+                    <div class="project-links">
+                        <a href="https://github.com/SindiAyanda" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <span class="project-link project-link-private"><i class="fas fa-lock"></i> Enterprise / Private</span>
+                    </div>
                 </div>
 
                 <!-- Project 3: Spin to Win -->
@@ -292,6 +334,10 @@
                         <span>Express</span>
                         <span>MySQL</span>
                         <span>OAuth 2.0</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/SindiAyanda" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <span class="project-link project-link-private"><i class="fas fa-lock"></i> Enterprise / Private</span>
                     </div>
                 </div>
 
@@ -323,6 +369,10 @@
                         <span>Twilio</span>
                         <span>JWT</span>
                     </div>
+                    <div class="project-links">
+                        <a href="https://github.com/SindiAyanda" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <span class="project-link project-link-private"><i class="fas fa-lock"></i> Enterprise / Private</span>
+                    </div>
                 </div>
 
                 <!-- Project 5: CCMS -->
@@ -352,6 +402,10 @@
                         <span>MySQL</span>
                         <span>Chart.js</span>
                         <span>JWT</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/SindiAyanda" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <span class="project-link project-link-private"><i class="fas fa-lock"></i> Enterprise / Private</span>
                     </div>
                 </div>
             </div>
@@ -458,6 +512,38 @@
                     <p>+27 63 048 2252</p>
                 </a>
             </div>
+
+            <!--
+                CONTACT FORM SETUP (free, 2 minutes):
+                1. Go to https://formspree.io and create a free account.
+                2. Create a new form and copy your form ID (looks like: xkgwabcd).
+                3. Replace YOUR_FORM_ID below with that ID.
+                Until then, the form falls back to opening the visitor's email app.
+            -->
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cf-name">Name</label>
+                        <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-email">Email</label>
+                        <input type="email" id="cf-email" name="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cf-subject">Subject</label>
+                    <input type="text" id="cf-subject" name="subject" placeholder="What's this about?">
+                </div>
+                <div class="form-group">
+                    <label for="cf-message">Message</label>
+                    <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about the opportunity or project..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary form-submit">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+                <p class="form-status" id="formStatus" role="status"></p>
+            </form>
         </div>
     </section>
 
@@ -467,6 +553,11 @@
             <p>&copy; 2026 Sindi Ayanda Mthiyane. Built with passion and clean code.</p>
         </div>
     </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>

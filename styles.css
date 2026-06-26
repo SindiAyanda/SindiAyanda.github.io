@@ -43,25 +43,25 @@
 
 /* ===== Light Mode ===== */
 [data-theme="light"] {
-    --bg-primary: #f8f9fc;
-    --bg-secondary: #eef0f5;
-    --bg-card: rgba(255, 255, 255, 0.8);
-    --bg-card-hover: rgba(255, 255, 255, 1);
-    --bg-glass: rgba(255, 255, 255, 0.6);
-    --border-color: rgba(0, 0, 0, 0.08);
-    --border-hover: rgba(0, 0, 0, 0.15);
-    --text-primary: #1a1a2e;
-    --text-secondary: #555570;
-    --text-muted: #888898;
+    --bg-primary: #f6f8fe;
+    --bg-secondary: #eef1fb;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --bg-card-hover: #ffffff;
+    --bg-glass: rgba(255, 255, 255, 0.7);
+    --border-color: rgba(40, 45, 90, 0.09);
+    --border-hover: rgba(90, 82, 224, 0.28);
+    --text-primary: #20243a;
+    --text-secondary: #5a6080;
+    --text-muted: #8b91ad;
     --accent: #5a52e0;
     --accent-light: #6c63ff;
-    --accent-glow: rgba(108, 99, 255, 0.15);
-    --accent-secondary: #00b894;
-    --accent-secondary-glow: rgba(0, 184, 148, 0.15);
-    --gradient-hero: linear-gradient(135deg, rgba(108, 99, 255, 0.06), rgba(0, 212, 170, 0.04));
-    --nav-scrolled-bg: rgba(248, 249, 252, 0.9);
-    --mobile-menu-bg: rgba(248, 249, 252, 0.98);
-    --shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+    --accent-glow: rgba(108, 99, 255, 0.18);
+    --accent-secondary: #00a98a;
+    --accent-secondary-glow: rgba(0, 184, 148, 0.18);
+    --gradient-hero: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(0, 212, 170, 0.05));
+    --nav-scrolled-bg: rgba(246, 248, 254, 0.85);
+    --mobile-menu-bg: rgba(246, 248, 254, 0.98);
+    --shadow: 0 10px 40px rgba(40, 45, 90, 0.1);
     --skill-tag-bg: rgba(108, 99, 255, 0.06);
     --skill-tag-border: rgba(108, 99, 255, 0.12);
     --skill-tag-hover-bg: rgba(108, 99, 255, 0.12);
@@ -76,6 +76,14 @@
     --maintain-bg: rgba(0, 184, 148, 0.08);
     --maintain-border: rgba(0, 184, 148, 0.15);
     --timeline-company-bg: rgba(108, 99, 255, 0.08);
+}
+
+[data-theme="light"] body {
+    background:
+        radial-gradient(900px circle at 12% -5%, rgba(108, 99, 255, 0.07), transparent 45%),
+        radial-gradient(800px circle at 92% 8%, rgba(0, 212, 170, 0.06), transparent 45%),
+        var(--bg-primary);
+    background-attachment: fixed;
 }
 
 [data-theme="light"] .hero-orb-1 {
@@ -175,6 +183,11 @@ ul {
     letter-spacing: 1px;
     transition: var(--transition);
     box-shadow: 0 2px 12px var(--accent-glow);
+    overflow: hidden;
+    background-image: url('mypic.jpg');
+    background-size: 200%;
+    background-position: 50% 14%;
+    background-repeat: no-repeat;
 }
 
 .nav-avatar:hover {
@@ -357,19 +370,15 @@ ul {
 
 /* Hero Avatar */
 .hero-avatar {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    background: var(--gradient-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-mono);
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: white;
-    letter-spacing: 3px;
+    background-image: url('mypic.jpg');
+    background-size: 190%;
+    background-position: 50% 14%;
+    background-repeat: no-repeat;
     margin: 0 auto 24px;
+    border: 4px solid var(--accent);
     box-shadow: 0 8px 32px var(--accent-glow);
     position: relative;
     opacity: 0;
@@ -1023,6 +1032,216 @@ ul {
     font-size: 0.85rem;
 }
 
+/* ===== Scroll Progress Bar ===== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: var(--gradient-primary);
+    z-index: 2000;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* ===== Skill Proficiency Bars ===== */
+.proficiency-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 40px;
+    max-width: 900px;
+    margin: 0 auto 56px;
+}
+
+.proficiency-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.proficiency-pct {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+
+.proficiency-track {
+    height: 8px;
+    border-radius: 20px;
+    background: var(--skill-tag-bg);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.proficiency-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 20px;
+    background: var(--gradient-primary);
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Project Links ===== */
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+a.project-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+.project-link-primary {
+    background: var(--gradient-primary);
+    color: #fff;
+    border-color: transparent;
+}
+
+a.project-link-primary:hover {
+    color: #fff;
+    box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+.project-link-private {
+    cursor: default;
+    color: var(--text-muted);
+    background: var(--feature-bg);
+}
+
+.project-link-private i {
+    color: var(--accent-secondary);
+}
+
+/* ===== Contact Form ===== */
+.contact-form {
+    max-width: 720px;
+    margin: 48px auto 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: var(--shadow);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px 14px;
+    transition: var(--transition);
+    resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.form-submit {
+    width: 100%;
+    justify-content: center;
+}
+
+.form-status {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 16px;
+    min-height: 1.2rem;
+    transition: var(--transition);
+}
+
+.form-status.success { color: var(--accent-secondary); }
+.form-status.error { color: #e0524a; }
+
+/* ===== Back to Top ===== */
+.back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: var(--gradient-primary);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px var(--accent-glow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition: var(--transition);
+    z-index: 1500;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px var(--accent-glow);
+}
+
 /* ===== Scroll Animations ===== */
 .reveal {
     opacity: 0;
@@ -1075,6 +1294,21 @@ ul {
     }
     .contact-grid {
         grid-template-columns: 1fr 1fr;
+    }
+    .proficiency-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .contact-form {
+        padding: 24px;
+    }
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
     }
     .hero-name {
         font-size: 2.8rem;
