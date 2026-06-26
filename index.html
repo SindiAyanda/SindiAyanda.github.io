@@ -29,6 +29,7 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#references" class="nav-link">References</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li><a href="cv.html" class="nav-link nav-cv-btn">Download CV</a></li>
                 <li>
@@ -45,7 +46,6 @@
     <section class="hero" id="hero">
         <div class="hero-content">
             <div class="hero-avatar" role="img" aria-label="Sindi Ayanda Mthiyane"></div>
-            <p class="hero-greeting">Hello, I'm</p>
             <h1 class="hero-name">Sindi Ayanda Mthiyane</h1>
             <h2 class="hero-title"><span class="typed-text">Software Developer</span></h2>
             <p class="hero-description">
@@ -116,7 +116,6 @@
     <section class="section section-alt" id="skills">
         <div class="container">
             <h2 class="section-title">Tech Stack</h2>
-            <p class="section-subtitle">The full toolset I build with</p>
 
             <div class="skills-grid">
                 <div class="skill-category">
@@ -195,8 +194,6 @@
     <section class="section" id="projects">
         <div class="container">
             <h2 class="section-title">Projects</h2>
-            <p class="section-subtitle">Production applications I've built and maintain at my current role</p>
-
             <div class="projects-grid">
                 <!-- Project 1: DCCMS -->
                 <div class="project-card featured">
@@ -369,7 +366,6 @@
     <section class="section" id="education">
         <div class="container">
             <h2 class="section-title">Education</h2>
-            <p class="section-subtitle">Qualifications and professional training</p>
             <div class="education-grid">
                 <div class="education-card">
                     <div class="education-icon"><i class="fas fa-graduation-cap"></i></div>
@@ -391,14 +387,29 @@
         </div>
     </section>
 
+    <!-- References Section -->
+    <section class="section section-alt" id="references">
+        <div class="container">
+            <h2 class="section-title">References</h2>
+            <div class="references-grid">
+                <div class="reference-card">
+                    <div class="reference-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3 class="reference-name">Kevin Mpofu</h3>
+                    <span class="reference-role">Engineering Manager · Kukhanya Energy Services</span>
+                    <a href="https://www.linkedin.com/in/kevin-mpofu/" target="_blank" rel="noopener" class="btn btn-outline reference-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section class="section section-alt" id="contact">
+    <section class="section" id="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">
-                I'm always open to new opportunities and interesting projects. Let's connect!
-            </p>
-            <div class="contact-grid">
+            <div class="contact-layout">
+                <div class="contact-grid">
                 <a href="mailto:sindiayanda30@gmail.com" class="contact-card">
                     <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
@@ -422,29 +433,31 @@
             </div>
 
             <form class="contact-form" id="contactForm" action="https://formspree.io/f/xdargoer" method="POST">
+                <h3 class="form-title">Send Me a Message</h3>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="cf-name">Name</label>
-                        <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+                        <input type="text" id="cf-name" name="name"  required>
                     </div>
                     <div class="form-group">
                         <label for="cf-email">Email</label>
-                        <input type="email" id="cf-email" name="email" placeholder="you@example.com" required>
+                        <input type="email" id="cf-email" name="email" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="cf-subject">Subject</label>
-                    <input type="text" id="cf-subject" name="subject" placeholder="What's this about?">
+                    <input type="text" id="cf-subject" name="subject">
                 </div>
                 <div class="form-group">
                     <label for="cf-message">Message</label>
-                    <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about the opportunity or project..." required></textarea>
+                    <textarea id="cf-message" name="message" rows="5" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary form-submit">
                     <i class="fas fa-paper-plane"></i> Send Message
                 </button>
                 <p class="form-status" id="formStatus" role="status"></p>
             </form>
+            </div>
         </div>
     </section>
 

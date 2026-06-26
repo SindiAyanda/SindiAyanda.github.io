@@ -94,7 +94,7 @@ function animateCounters() {
 // ===== Scroll Reveal =====
 const revealElements = document.querySelectorAll(
     '.section-title, .section-subtitle, .about-text, .about-stats, ' +
-    '.skill-category, .project-card, .timeline-item, .education-card, .contact-card'
+    '.skill-category, .project-card, .timeline-item, .education-card, .reference-card, .contact-card'
 );
 
 revealElements.forEach(el => el.classList.add('reveal'));
