@@ -122,9 +122,9 @@ ul {
     border-radius: 50%;
     transition: var(--transition);
     overflow: hidden;
-    background-image: url('mypic.jpg');
-    background-size: 200%;
-    background-position: 50% 14%;
+    background-image: url('sindi2.jpeg');
+    background-size: cover;
+    background-position: 50% 20%;
     background-repeat: no-repeat;
     border: 1px solid var(--border-color);
 }
@@ -246,9 +246,9 @@ ul {
     height: 300px;
     flex-shrink: 0;
     border-radius: 50%;
-    background-image: url('mypic.jpg');
-    background-size: 190%;
-    background-position: 50% 14%;
+    background-image: url('sindi2.jpeg');
+    background-size: cover;
+    background-position: 50% 20%;
     background-repeat: no-repeat;
     border: 1px solid var(--border-color);
     opacity: 0;
